@@ -73,6 +73,7 @@ clean_factor_data=megedata
 input_factor= test_factor*tradeable
 input_factor=input_factor.stack()
 
+
 clean_factor_data["factor"]=input_factor
 clean_factor_data=clean_factor_data.dropna()
 clean_factor_data["factor_quantile"]=clean_factor_data["factor"].groupby(level=0).apply(lambda x :((pd.qcut(x.rank(), 10, labels=False,duplicates='drop') + 1)))
